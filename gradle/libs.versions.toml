@@ -1,5 +1,8 @@
 [versions]
 agp = "8.4.1"
+firebaseAuth = "23.0.0"
+firebaseCore = "9.6.1"
+firebaseDatabase = "21.0.0"
 firebaseFirestoreKtxVersion = "21.4.3"
 firebaseUiFirestore = "5.1.0"
 kotlin = "1.9.0"
@@ -14,14 +17,20 @@ fragmentKtx = "1.8.1"
 constraintlayout = "2.1.4"
 material = "1.12.0"
 appcompat = "1.7.0"
+materialVersion = "1.9.0"
 navigationFragmentKtx = "2.7.7"
 navigationUiKtx = "2.7.7"
 mediarouter = "1.7.0"
 firebaseFirestoreKtx = "25.0.0"
 firebaseUi = "8.0.2"
+firebaseAnalytics = "22.0.2"
+firebaseBom = "33.1.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+firebase-auth = { module = "com.google.firebase:firebase-auth", version.ref = "firebaseAuth" }
+firebase-core = { module = "com.google.firebase:firebase-core", version.ref = "firebaseCore" }
+firebase-database = { module = "com.google.firebase:firebase-database", version.ref = "firebaseDatabase" }
 firebase-firestore-ktx-v2143 = { module = "com.google.firebase:firebase-firestore-ktx", version.ref = "firebaseFirestoreKtxVersion" }
 firebase-ui-firestore = { module = "com.firebaseui:firebase-ui-firestore", version.ref = "firebaseUiFirestore" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -46,6 +55,9 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 androidx-mediarouter = { group = "androidx.mediarouter", name = "mediarouter", version.ref = "mediarouter" }
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 firebase-ui = { group = "com.firebaseui", name = "firebase-ui", version.ref = "firebaseUi" }
+material-v190 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics", version.ref = "firebaseAnalytics" }
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

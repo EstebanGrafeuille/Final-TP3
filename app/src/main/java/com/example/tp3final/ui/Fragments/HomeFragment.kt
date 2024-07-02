@@ -2,6 +2,7 @@ package com.example.tp3final.ui.Fragments
 
 import androidx.fragment.app.Fragment
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,7 +43,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         viewRestaurante  = inflater.inflate(R.layout.lay_fragment_home, container, false)
         restauranteRecycler = viewRestaurante.findViewById(R.id.restauranteRecycler)
         return viewRestaurante
@@ -55,19 +56,25 @@ class HomeFragment : Fragment() {
         manager = LinearLayoutManager(context)
         fillRecycler()
 
-        restauranteRecycler.layoutManager = manager
-        restauranteRecycler.adapter = restauranteAdapter
+
     }
 
 
     fun checkRecords(){
         db.collection(getString(R.string.res_collection)).get().addOnCompleteListener{}
     }
-    fun fillRecycler(){
+    private fun fillRecycler(){
         val rootref = FirebaseFirestore.getInstance()
         val query = rootref.collection(getString(R.string.res_collection))
         val options = FirestoreRecyclerOptions.Builder<Restaurante>().setQuery(query,Restaurante::class.java).build()
+        Log.i("query",query.toString())
+        Log.i("adapter","antes adapter")
         restauranteAdapter = RestauranteAdapter(options)
+
+        restauranteAdapter.startListening()
+
+        restauranteRecycler.adapter = restauranteAdapter
+        Log.i("recycler","termino recycler")
     }
 
 }
