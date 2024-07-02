@@ -10,6 +10,11 @@
         android:label="lay_fragment_home"
         tools:layout="@layout/lay_fragment_home" />
     <fragment
+        android:id="@+id/fragRefresh"
+        android:name="com.example.tp3final.ui.Fragments.RefreshFragment"
+        android:label="lay_fragment_refresh"
+        tools:layout="@layout/lay_fragment_refresh" />
+    <fragment
         android:id="@+id/fragHistorico"
         android:name="com.example.tp3final.ui.Fragments.HistoricoFragment"
         android:label="lay_fragment_historico"
