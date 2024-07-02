@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3final.R
+import com.example.tp3final.databinding.LayActivityMainBinding
+import com.example.tp3final.databinding.LayFragmentHomeBinding
 import com.example.tp3final.ui.Adapters.RestauranteAdapter
 import com.example.tp3final.ui.Viewmodels.ResViewModel
 import com.google.firebase.firestore.FirebaseFirestore
@@ -27,6 +29,8 @@ class HomeFragment : Fragment() {
     lateinit var manager: RecyclerView.LayoutManager
     lateinit var viewRestaurante:View
     lateinit var restauranteAdapter: RestauranteAdapter
+    var _binding: LayFragmentHomeBinding? = null
+    val binding get() = _binding!!
 
     val db = Firebase.firestore
 
@@ -44,9 +48,19 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        _binding = LayFragmentHomeBinding.inflate(inflater,container,false)
         viewRestaurante  = inflater.inflate(R.layout.lay_fragment_home, container, false)
         restauranteRecycler = viewRestaurante.findViewById(R.id.restauranteRecycler)
+
+        binding
+
+
+
+
+
         return viewRestaurante
+
+
     }
 
     override fun onStart() {
@@ -61,6 +75,7 @@ class HomeFragment : Fragment() {
 
 
     }
+
 
 
     fun checkRecords(){

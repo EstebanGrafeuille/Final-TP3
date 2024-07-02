@@ -4,12 +4,16 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3final.R
+import com.example.tp3final.ui.Interfaces.RecycleViewInterface
 
-class RestauranteHolder  (v: View): RecyclerView.ViewHolder(v)  {
+class RestauranteHolder  (v:View,clickListener: RecycleViewInterface): RecyclerView.ViewHolder(v)  {
 
     private var view:View
     init{
         this.view = v
+        v.setOnClickListener{
+            clickListener.onItemClick(adapterPosition)
+        }
     }
 
     fun setTitle(titletext:String){
