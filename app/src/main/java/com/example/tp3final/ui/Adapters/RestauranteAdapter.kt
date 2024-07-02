@@ -19,6 +19,7 @@ class RestauranteAdapter(private val restaurantes: FirestoreRecyclerOptions<Rest
     }
 
     override fun onBindViewHolder(holder: RestauranteHolder, position: Int, model: Restaurante) {
+        model.nombre?.let { Log.i("setting item", it) }
         model.nombre?.let { holder.setTitle(it) }
         model.tipo?.let { holder.settipo(it) }
         model.rating?.let { holder.setRating(it) }

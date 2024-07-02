@@ -52,9 +52,12 @@ class HomeFragment : Fragment() {
     override fun onStart() {
 
         super.onStart()
-        restauranteRecycler.setHasFixedSize(true)
         manager = LinearLayoutManager(context)
+        restauranteRecycler.setHasFixedSize(true)
+        Log.i("LM","antes layout manager")
         fillRecycler()
+        restauranteRecycler.adapter = restauranteAdapter
+        restauranteRecycler.layoutManager = manager
 
 
     }
@@ -73,7 +76,7 @@ class HomeFragment : Fragment() {
 
         restauranteAdapter.startListening()
 
-        restauranteRecycler.adapter = restauranteAdapter
+
         Log.i("recycler","termino recycler")
     }
 

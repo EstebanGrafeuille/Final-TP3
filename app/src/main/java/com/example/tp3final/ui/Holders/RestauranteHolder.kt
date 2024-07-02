@@ -22,7 +22,7 @@ class RestauranteHolder  (v: View): RecyclerView.ViewHolder(v)  {
         tipo.text = type
     }
 
-    fun setRating(rating:Float){
+    fun setRating(rating:Double){
         val rating: TextView = view.findViewById(R.id.rating_text)
         rating.text = rating.text
     }
