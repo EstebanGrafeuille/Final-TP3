@@ -8,6 +8,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="res_collection">ListaLocales</string>
+    <string name="rest_details_btn_text">Pedir</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
