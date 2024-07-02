@@ -31,9 +31,10 @@ class RestauranteAdapter(
         model.nombre?.let { holder.setTitle(it) }
         model.tipo?.let { holder.settipo(it) }
         model.rating?.let { holder.setRating(it) }
-        holder.navigateToRestaurantDetails().setOnClickListener(){
-            mListener.onItemClick(restaurant)
+        model.rating?.let {
+            holder.navigateToRestaurantDetails().setOnClickListener {
+                mlistener.onItemClick(restaurant)
+            }
         }
-
     }
 }

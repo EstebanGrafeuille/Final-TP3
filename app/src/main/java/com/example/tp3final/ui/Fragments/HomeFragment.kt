@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp3final.R
@@ -18,10 +19,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.example.tp3final.ui.Entities.Restaurante
+import com.example.tp3final.ui.Interfaces.RecycleViewInterface
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(),RecycleViewInterface {
 
     private lateinit var viewModel: ResViewModel
 
@@ -87,12 +89,16 @@ class HomeFragment : Fragment() {
         val options = FirestoreRecyclerOptions.Builder<Restaurante>().setQuery(query,Restaurante::class.java).build()
         Log.i("query",query.toString())
         Log.i("adapter","antes adapter")
-        restauranteAdapter = RestauranteAdapter(options)
+        restauranteAdapter = RestauranteAdapter(options,this)
 
         restauranteAdapter.startListening()
 
 
         Log.i("recycler","termino recycler")
+    }
+
+    override fun onItemClick(restaurant: Restaurante) {
+        findNavController().navigate(Frag)
     }
 
 }
