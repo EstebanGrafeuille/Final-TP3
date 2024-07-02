@@ -1,6 +1,9 @@
 package com.example.tp3final.ui.Activities
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -21,17 +24,26 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navHostFragment : NavHostFragment
     private lateinit var navController : NavController
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.lay_activity_main)
 
-        navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_frag) as NavHostFragment
+        val orderButton: Button = findViewById(R.id.buttonSplash)
+        orderButton.setOnClickListener {
 
-        navController = navHostFragment.navController
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
 
-        bottomNavigation = findViewById(R.id.bottom_bar)
+            navHostFragment =
+                supportFragmentManager.findFragmentById(R.id.nav_host_frag) as NavHostFragment
 
-        NavigationUI.setupWithNavController(bottomNavigation, navHostFragment.navController)
-    }
-}
+            navController = navHostFragment.navController
+
+            bottomNavigation = findViewById(R.id.bottom_bar)
+
+            NavigationUI.setupWithNavController(bottomNavigation, navHostFragment.navController)
+        }
+    }}
