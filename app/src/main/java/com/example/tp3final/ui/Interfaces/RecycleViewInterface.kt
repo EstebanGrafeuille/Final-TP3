@@ -1,5 +1,7 @@
 package com.example.tp3final.ui.Interfaces
 
+import com.example.tp3final.ui.Entities.Restaurante
+
 interface RecycleViewInterface {
-    fun onItemClick(pos:Int)
+    fun onItemClick(restaurant:Restaurante)
 }
